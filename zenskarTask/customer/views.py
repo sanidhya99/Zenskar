@@ -5,6 +5,7 @@ from rest_framework import generics
 
 class CustomerCreateView(generics.ListCreateAPIView):
     serializer_class = customerSerializer
+    queryset=Customer.objects.all()
 
 class CustomerEditView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = customerSerializer
