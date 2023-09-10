@@ -4,5 +4,5 @@ from django.urls import path
 
 urlpatterns=[
     path("customer/" ,CustomerCreateView.as_view(),name="CustomerCreation"),
-    path("customer/<int:id>/" ,CustomerEditView.as_view(),name="CustomerUpdate"),
+    path("customer/delete/" ,CustomerEditView.as_view(),name="CustomerUpdate"),
             ]

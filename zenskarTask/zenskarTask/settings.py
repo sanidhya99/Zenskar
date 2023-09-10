@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# settings.py
+
+STRIPE_API_KEY = 'sk_test_51NoVtqSFulLe6irUqDTKjGV6hhl3pZZhImw5W7XCZSXap4ILObxuggXXw446q3tboCW7Qw0Ygae7Q67zteAkQAJG004falzVEb'
 
 # Application definition
 
@@ -75,9 +78,17 @@ WSGI_APPLICATION = 'zenskarTask.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Zenskar',
+        'USER':'postgres',
+        'PASSWORD':'sanidhya',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
