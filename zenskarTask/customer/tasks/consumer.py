@@ -12,7 +12,7 @@ def create_stripe_customer(data):
 
     print(data)
     headers = {
-        'Authorization':f'Bearer {stripe_api_key}',
+        'Authorization':f'Bearer {stripe_api_key}', 
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept':'*/*'
     }
