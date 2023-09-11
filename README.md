@@ -25,12 +25,12 @@ To integrate stripe test account with local relational database through Django A
 4. Ngrok will provide you with a public URL. Use this URL for webhook configuration in the Stripe developer section.
 5. Create two webhooks in the Stripe developer section:
   - **Webhook 1:**
-   - Endpoint URL: `{Ngrok endpoint}/catalog/customer/`
-   - Events: `customer.created`
+    - Endpoint URL: `{Ngrok endpoint}/catalog/customer/`
+    - Events: `customer.created`
 
   - **Webhook 2:**
-   - Endpoint URL: `{Ngrok endpoint}/catalog/customer/delete/`
-   - Event: `customer.deleted`
+    - Endpoint URL: `{Ngrok endpoint}/catalog/customer/delete/`
+    - Event: `customer.deleted`
    
      
    
