@@ -8,11 +8,11 @@ def create_stripe_customer(data):
     stripe_api_url = 'https://api.stripe.com/v1/customers'
 
     # Replace with your Stripe API secret key
-    # stripe_api_key = 'sk_test_51NoVtqSFulLe6irUqDTKjGV6hhl3pZZhImw5W7XCZSXap4ILObxuggXXw446q3tboCW7Qw0Ygae7Q67zteAkQAJG004falzVEb'
+    stripe_api_key = {Your stripe api key}
 
     print(data)
     headers = {
-        'Authorization':'Bearer sk_test_51NoVtqSFulLe6irUqDTKjGV6hhl3pZZhImw5W7XCZSXap4ILObxuggXXw446q3tboCW7Qw0Ygae7Q67zteAkQAJG004falzVEb',
+        'Authorization':f'Bearer {stripe_api_key}',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept':'*/*'
     }
