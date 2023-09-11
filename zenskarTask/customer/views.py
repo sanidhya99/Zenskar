@@ -3,19 +3,9 @@ from rest_framework.response import Response
 from .serializers import *
 from rest_framework import generics
 import json
+from customer.tasks.producer import publish_to_queue
 
-from rest_framework import generics
-from rest_framework.response import Response
-
-from rest_framework import generics
-from rest_framework.response import Response
-
-from rest_framework import generics
-from rest_framework.response import Response
-
-from rest_framework import generics
-from rest_framework.response import Response
-
+#create API for inward sync
 class CustomerCreateView(generics.ListCreateAPIView):
     serializer_class = customerSerializer
     queryset = Customer.objects.all()
@@ -41,8 +31,34 @@ class CustomerCreateView(generics.ListCreateAPIView):
         else:
             return Response({"error": serializer.errors}, status=400)
 
+#create API for outward sync
+class CustomerOutCreateView(generics.CreateAPIView):
+    serializer_class = customerSerializer
 
+    def create(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        name=request.data.get('name')
+        # Check if a customer with the same email already exists
+        existing_customer = Customer.objects.filter(email=email).first()
 
+        if existing_customer:
+            # Update the existing customer
+            serializer = self.get_serializer(existing_customer, data=request.data)
+        else:
+            # Create a new customer
+            serializer = self.get_serializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        pbd={
+   "next_invoice_sequence":"1",
+   "email":email,
+   "name":name
+}
+        # Pass the data to the publish_to_queue function
+        publish_to_queue(pbd)
+
+        return Response({"message":"Customer successfully created"},status=201)
 
         
 class CustomerEditView(generics.CreateAPIView):
