@@ -5,9 +5,7 @@ To integrate stripe test account with local relational database through Django A
 ## Installation
 
 1. Clone the Git repository:
-   ```
-   git clone https://github.com/sanidhya99/Zenskar.git
-   ```
+    ```git clone https://github.com/sanidhya99/Zenskar.git```
 3. Install required Python packages:
    ```pip install pika requests```
 4. Set up a PostgreSQL database on your local machine (port 5432) and update the database credentials in settings.py.
