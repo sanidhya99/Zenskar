@@ -18,9 +18,10 @@ To integrate stripe test account with local relational database through Django A
     `python manage.py runserver`
 2. Download and install Ngrok from its official website.
 3. Unzip Ngrok, open a terminal, and run the following commands:
-   <pre>
-    ngrok config add-authtoken {Your auth token}
-    ngrok http 8000
-   </pre>   
+   ```
+   ngrok config add-authtoken {Your auth token}
+   ngrok http 8000
+   ```
+     
    
             
